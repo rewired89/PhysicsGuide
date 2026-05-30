@@ -322,7 +322,57 @@ const SECTIONS = [
     icon: "🎱",
     title: "Momentum & Collisions",
     subtitle: "Momentum, impulse, elastic vs inelastic collisions — the physics of crashes and impacts",
-    concepts: []
+    concepts: [
+
+      {
+        id: "momentum-impulse",
+        title: "Momentum & Impulse",
+        tags: ["core"],
+        chain: ["Object has mass and velocity", "mass × velocity = momentum", "Force applied over time", "force × time = impulse", "Impulse = change in momentum"],
+        blurb: "Momentum is the 'oomph' of a moving object — mass times velocity. Impulse is what changes it: a force applied over time. Longer force contact = bigger momentum change.",
+        detail: `Momentum is the physics word for how hard something is to stop.\n\n<strong>Momentum:</strong>\np = mv\nm = mass (kg), v = velocity (m/s)\nUnits: kg·m/s — a vector (has direction)\n\n<strong>Impulse:</strong>\nJ = F × Δt\nA force applied for a duration of time changes an object's momentum.\nJ = Δp = m·Δv\nUnits: N·s = kg·m/s (same as momentum)\n\n<strong>Why impulse matters in safety engineering:</strong>\nTo stop a moving object you need to deliver a certain Δp. You can do this with:\n• Large force for a short time — crashing into a brick wall\n• Small force for a long time — slowing down in a foam barrier\n\nSame change in momentum, very different peak forces. This is why airbags, crumple zones, padded dashboards, and helmets all work the same way: they increase stopping time, which decreases peak force on the body.\n\n<strong>Example:</strong>\n70 kg person at 15 m/s must stop: Δp = 70 × 15 = 1,050 kg·m/s\nStop in 0.05 s (wall): F = 1,050/0.05 = 21,000 N (likely fatal)\nStop in 0.5 s (airbag): F = 1,050/0.5 = 2,100 N (survivable)\n\n<strong>The connection to Newton's 2nd:</strong>\nF = ma = m(Δv/Δt) = Δp/Δt\nForce = rate of change of momentum. This is actually Newton's original formulation of his Second Law.`,
+        memory: `Momentum = how hard something is to stop. A slow freight train vs a fast bullet — train wins on momentum even though it is slower, because it is so much heavier.\n\nImpulse = push × time. Car crash into a wall (huge force, tiny time). Car crash into foam barrier (small force, long time). Same total stop, very different experience.`,
+        examTip: `The impulse-momentum theorem (J = Δp) explains every piece of safety equipment ever invented. Helmets, airbags, crumple zones — all increase collision time to reduce peak force. Same momentum change, longer time = smaller force on the body. Physics saving lives since the first padded chariot.`,
+        facts: ["p = mv", "Units: kg·m/s (vector)", "J = FΔt", "J = Δp", "Same Δp, longer time = less force", "F = Δp/Δt (Newton's original 2nd law)"]
+      },
+
+      {
+        id: "conservation-of-momentum",
+        title: "Conservation of Momentum",
+        tags: ["core"],
+        chain: ["Two objects in a closed system", "No external forces", "Total momentum before collision", "Equals total momentum after", "What one loses the other gains"],
+        blurb: "In any collision or explosion with no external forces, total momentum is conserved. The universe's total momentum is fixed — always.",
+        detail: `Conservation of Momentum: the total momentum of an isolated system does not change.\n\n<strong>The math:</strong>\np_before = p_after\nm₁v₁ + m₂v₂ = m₁v₁' + m₂v₂'\n(primes = after-collision values)\n\n<strong>Why it works:</strong>\nNewton's 3rd law guarantees it. During a collision, A exerts force on B and B exerts equal and opposite force on A. Both impulses are equal in magnitude, opposite in direction — they cancel. Total momentum unchanged.\n\n<strong>Pool ball example:</strong>\nCue ball (0.17 kg at 3 m/s) hits identical ball at rest.\np_before = 0.17 × 3 + 0 = 0.51 kg·m/s\nHead-on elastic hit: cue ball stops, target moves at 3 m/s.\np_after = 0 + 0.17 × 3 = 0.51 kg·m/s ✓\n\n<strong>Ice skaters pushing off:</strong>\nBoth at rest: total p = 0. They push off, fly in opposite directions. Their momenta are equal and opposite, still summing to zero.\n\n<strong>What "isolated system" means:</strong>\nNo significant external forces during the event. For brief collisions, friction and gravity do not act long enough to matter — the collision time is so short that external impulse ≈ 0.`,
+        memory: `Pool table = the best illustration. Watch a pro break — the cue ball's momentum distributes across all the balls. Total system momentum stays the same, just spread differently.\n\nAstronaut floating in space, throws a wrench forward: wrench goes one way, astronaut drifts the other. Total momentum was zero before, still zero after. To move in space with nothing to push against, throw something.`,
+        examTip: `Conservation of momentum works in 2D — conserve x-momentum and y-momentum separately. It also holds in inelastic collisions where kinetic energy is NOT conserved. Momentum conservation is more universal than energy conservation in collision problems — it applies to all collision types without exception.`,
+        facts: ["p_before = p_after", "Requires no external forces", "Works in 1D and 2D", "Newton's 3rd guarantees it", "Works for all collision types", "Universe total p = constant"]
+      },
+
+      {
+        id: "collision-types",
+        title: "Elastic vs Inelastic Collisions",
+        tags: ["core"],
+        chain: ["Objects collide", "Momentum always conserved", "Kinetic energy — elastic: also conserved", "Inelastic: some KE lost to heat", "Perfectly inelastic: they stick together"],
+        blurb: "All collisions conserve momentum. Elastic collisions also conserve kinetic energy. Inelastic ones lose KE to heat and deformation. Perfectly inelastic = objects stick and move as one.",
+        detail: `Every collision conserves momentum. The difference between types is what happens to kinetic energy.\n\n<strong>Elastic collision:</strong>\nBoth momentum AND kinetic energy conserved. KE_before = KE_after.\nAtoms and subatomic particles collide elastically. Billiard balls are approximately elastic.\nIn a head-on elastic collision between equal masses: they swap velocities entirely — cue ball stops, target ball moves at cue ball's original speed.\n\n<strong>Inelastic collision:</strong>\nMomentum conserved. KE is NOT conserved — some converts to heat, sound, deformation.\nMost real-world collisions: car crashes, sports impacts, anything that deforms.\n\n<strong>Perfectly inelastic collision:</strong>\nMomentum conserved. Maximum KE lost. Objects stick together and move as one.\nExample: a football tackle — tackler and ball-carrier move together.\nFormula: m₁v₁ + m₂v₂ = (m₁ + m₂) × v_final\n\n<strong>Where does the lost KE go?</strong>\nInto heat (metal deforming), sound (the crash noise), and permanent deformation. Total energy is conserved — KE just converts to other forms.\n\n<strong>Why crumple zones are intentionally inelastic:</strong>\nEngineered to absorb as much KE as possible via deformation, reducing what reaches the passenger compartment.`,
+        memory: `Elastic = Newton's cradle. Balls bounce off without deforming. Perfect momentum and KE transfer. The click-clack toy on everyone's desk is demonstrating conservation of both.\n\nInelastic = lump of clay hitting a wall. Momentum transferred, but KE goes into squishing the clay flat.\n\nPerfectly inelastic = football tackle. Two separate objects become one combined object moving together.`,
+        examTip: `The "coefficient of restitution" measures elasticity: 1 = perfectly elastic, 0 = perfectly inelastic. Superball ≈ 0.9. Tennis ball ≈ 0.75. A lump of clay ≈ 0. It can never exceed 1 — that would create kinetic energy from nothing, violating conservation of energy.`,
+        facts: ["All collisions: p conserved", "Elastic: KE also conserved", "Inelastic: KE partially lost to heat", "Perfectly inelastic: objects stick", "KE → heat/sound/deformation", "Crumple zones = intentionally inelastic"]
+      },
+
+      {
+        id: "explosions",
+        title: "Explosions & Recoil",
+        tags: ["core"],
+        chain: ["System starts at rest", "Internal force acts", "Pieces fly apart", "Momenta equal and opposite", "Total still zero — always"],
+        blurb: "An explosion is a reverse collision — one object becomes two flying in opposite directions. Momentum was zero before, so it sums to zero after. Rockets and guns work on this.",
+        detail: `Explosions follow the same conservation of momentum rules as collisions — just running backward.\n\n<strong>The math:</strong>\nIf system starts at rest (p_total = 0):\nm₁v₁ + m₂v₂ = 0\nm₁v₁ = −m₂v₂\n\nThe two pieces have equal and opposite momenta.\n\n<strong>Gun recoil:</strong>\nBullet (0.01 kg) fires at 900 m/s forward:\np_bullet = 0.01 × 900 = 9 kg·m/s forward\nGun must have p = 9 kg·m/s backward.\n1 kg gun: recoil = 9 m/s. 3 kg gun: recoil = 3 m/s.\nHeavier gun = same momentum, more mass = less recoil velocity.\n\n<strong>Rocket propulsion:</strong>\nRocket expels exhaust backward → rocket pushed forward.\nNo ground, no air needed. Pure Newton's 3rd + conservation of momentum.\nThis is the only way to accelerate in empty space.\n\n<strong>Astronaut in space:</strong>\nFloating with zero total momentum. Throw a 1 kg wrench at 10 m/s forward.\nYou are 70 kg: v = (1 × 10)/70 = 0.14 m/s backward — toward the ship.\nThrowing things is literally how you navigate in space without a jet pack.`,
+        memory: `Explosion = collision film played in reverse. One thing splits into pieces flying apart. Zero momentum before = zero total momentum after. Simple.\n\nGun recoil feels unequal — the bullet goes far and fast, the gun kicks slightly back. But the momentum is equal. The gun's large mass means the equal momentum results in a small velocity kick compared to the tiny bullet.`,
+        examTip: `Rocket propulsion in space is pure explosion physics. There is no air to push against — the rocket expels exhaust backward, the equal and opposite reaction pushes the rocket forward. Ion thrusters do this with tiny but continuous momentum transfer, building to enormous speeds over weeks and months.`,
+        facts: ["p_total = 0 before and after", "m₁v₁ = −m₂v₂", "Heavier object = less recoil speed", "Rocket = continuous explosion", "No ground needed in space", "Throw something to move in space"]
+      },
+
+    ]
   },
 
   {
@@ -330,7 +380,69 @@ const SECTIONS = [
     icon: "⚙️",
     title: "Rotation & Torque",
     subtitle: "Angular motion, torque, levers, center of mass — the physics behind catapults and spinning",
-    concepts: []
+    concepts: [
+
+      {
+        id: "angular-motion",
+        title: "Angular Motion",
+        tags: ["core"],
+        chain: ["Object rotates", "Angle replaces distance", "Angular velocity ω = angle ÷ time", "Angular acceleration α = Δω ÷ time", "Every linear concept has a rotational twin"],
+        blurb: "Rotation is linear motion wrapped in a circle. Every concept translates — distance becomes angle, velocity becomes angular velocity, force becomes torque.",
+        detail: `Rotation has its own set of variables, but they map one-to-one with what you already know from linear motion.\n\n<strong>Linear → Rotational equivalents:</strong>\n• Distance (x) → Angle (θ), measured in radians\n• Velocity (v) → Angular velocity (ω, omega), rad/s\n• Acceleration (a) → Angular acceleration (α, alpha), rad/s²\n• Mass (m) → Rotational inertia (I), kg·m²\n• Force (F) → Torque (τ, tau), N·m\n• Momentum (p=mv) → Angular momentum (L=Iω), kg·m²/s\n\n<strong>Radians:</strong>\nOne full rotation = 2π radians ≈ 6.28 rad = 360°\nHalf rotation = π rad = 180°\nConvert: degrees × (π/180) = radians\n\n<strong>Relationship between rotation and linear motion:</strong>\nA point on a rotating object at radius r from the axis:\n• Linear speed at that point: v = ωr\n• Linear acceleration: a = αr\n\nThis is why the outer edge of a spinning disc moves much faster than the inner part — same angular velocity ω, but larger r = larger linear v.\n\n<strong>Rotational kinematic equations:</strong>\nIdentical to linear, just substitute θ for x, ω for v, α for a:\n• ω = ω₀ + αt\n• θ = ω₀t + ½αt²\n• ω² = ω₀² + 2αθ`,
+        memory: `Spinning pizza. Every slice rotates through the same angle in the same time — same ω. But the crust (far from center) moves much faster in a straight line than the dough near the center. Same ω, different r = very different v = ωr.\n\nRecord player, CD, hard drive disk, washing machine drum — all the same physics. Inner parts and outer parts have the same angular speed but wildly different linear speeds.`,
+        examTip: `The outer edge of any rotating object has higher linear speed than the inner parts. A CD drive constantly adjusts rotation speed because as the laser moves from the center to the edge, it needs to maintain the same linear speed across the disc (which requires decreasing ω as r increases). v = ωr in every direction.`,
+        facts: ["2π rad = 360°", "ω = angular velocity (rad/s)", "α = angular acceleration (rad/s²)", "v = ωr (linear speed at radius r)", "All kinematic eqns apply with rotational vars", "L = Iω (angular momentum)"]
+      },
+
+      {
+        id: "torque",
+        title: "Torque",
+        tags: ["core"],
+        chain: ["Force applied at distance from pivot", "τ = r × F × sin(θ)", "Farther from pivot = more torque", "Force perpendicular = maximum torque", "Torque causes angular acceleration"],
+        blurb: "Torque is the rotational equivalent of force — what causes things to spin. Force × distance from the pivot = torque. The farther out you push, the more rotational effect.",
+        detail: `Torque is to rotation what force is to linear motion. Apply torque to something and it angularly accelerates — it starts spinning, spins faster, or slows its spin.\n\n<strong>The formula:</strong>\nτ = r × F × sin(θ)\nτ = torque (N·m)\nr = distance from pivot to where force is applied (the "lever arm"), in meters\nF = force magnitude (N)\nθ = angle between the force direction and the lever arm\n\nMaximum torque: force perpendicular to lever arm (θ = 90°, sin(90°) = 1)\nτ = rF\n\n<strong>Why lever arm distance matters:</strong>\n10 N force at 0.3 m: τ = 3 N·m\nSame 10 N force at 1.2 m: τ = 12 N·m (4× more torque, same force)\n\n<strong>Everyday examples:</strong>\n• Door: push near the hinge (small r) = barely opens. Push at the handle (large r) = swings easily.\n• Wrench: longer handle = more torque on the bolt with the same hand force. Why mechanics use long-handled torque wrenches.\n• Bicycle pedals: maximum torque when crank is horizontal (force perpendicular to crank).\n\n<strong>Net torque → rotation (analog of F = ma):</strong>\nΣτ = Iα\nNet torque = rotational inertia × angular acceleration`,
+        memory: `Torque = leverage. A door is the perfect live demo. Push near the hinge (r ≈ 5 cm) = have to lean hard. Push at the doorknob (r ≈ 90 cm) = easy. Same force, 18× different torque. τ = rF.\n\nWhy do jar lids have wide tops? More r = more torque from the same hand grip. Why do steering wheels exist instead of just a control rod? Larger radius = more torque from your arms to steer.`,
+        examTip: `A force aimed directly at the pivot point produces zero torque — it passes through the pivot so r is zero, or θ = 0° so sin(0°) = 0. Both give τ = 0. This is why pushing parallel to a door from the hinged side does nothing. Only the perpendicular component of force relative to the lever arm creates torque.`,
+        facts: ["τ = rF·sinθ", "Units: N·m", "Max torque: F ⊥ lever arm", "Longer arm = more torque", "Στ = Iα", "Door near hinge = hard; at knob = easy"]
+      },
+
+      {
+        id: "levers",
+        title: "Levers & Mechanical Advantage",
+        tags: ["core"],
+        chain: ["Pivot point (fulcrum)", "Effort force on one side", "Load on the other", "Torques balance at equilibrium", "Longer arm = less force needed"],
+        blurb: "A lever amplifies force by trading distance. Push less force over more distance and you can move a heavier load over less distance. Same work done, easier effort.",
+        detail: `A lever is the simplest machine and it works entirely through torque balance.\n\n<strong>The principle:</strong>\nAt equilibrium, torque in = torque out:\nF_effort × d_effort = F_load × d_load\n\nMechanical Advantage (MA) = F_load / F_effort = d_effort / d_load\n\n<strong>The three lever classes:</strong>\n\n• Class 1: Fulcrum between effort and load.\nExamples: see-saw, crowbar, scissors, pliers.\nMA can be > 1 or < 1 depending on fulcrum position.\n\n• Class 2: Load between fulcrum and effort.\nExamples: wheelbarrow, nutcracker, bottle opener, door (hinge=fulcrum).\nAlways MA > 1 (always multiplies force).\n\n• Class 3: Effort between fulcrum and load.\nExamples: tweezers, fishing rod, your forearm lifting something.\nAlways MA < 1 — less force output but faster/larger movement at the end.\n\n<strong>The trade-off (conservation of energy):</strong>\nYou cannot get more work out than you put in.\nMA = 5: exert 5× less force — but over 5× more distance.\nWork (force × distance) is the same on both sides.\n\n<strong>Your skeleton is full of class 3 levers:</strong>\nForearm: elbow = fulcrum, bicep attaches ~4 cm from elbow, hand is ~35 cm out.\nMA = 4/35 ≈ 0.11 — bicep exerts ~9× the weight you are holding!\nYou trade force for speed and range of motion. Evolution chose dexterity over raw power.`,
+        memory: `Archimedes: "Give me a lever long enough and a fulcrum on which to place it, and I shall move the world." He meant this literally — mechanical advantage can be arbitrarily large.\n\nSee-saw: heavier kid sits closer to the center. Lighter kid sits at the edge. They balance when torques are equal: (heavy × short arm) = (light × long arm).`,
+        examTip: `Your forearm being a class 3 lever (MA < 1) seems like a bad design until you consider speed and range: the hand moves 9× farther and faster than the muscle contracts. That is why you can throw, play piano, and type. Evolution traded force efficiency for speed and precision.`,
+        facts: ["F_e × d_e = F_L × d_L", "MA = F_load/F_effort", "Class 1: fulcrum middle", "Class 2: load middle (MA>1)", "Class 3: effort middle (MA<1)", "Your forearm = class 3 lever"]
+      },
+
+      {
+        id: "center-of-mass",
+        title: "Center of Mass",
+        tags: ["core"],
+        chain: ["Object has mass distributed throughout", "Weighted average position of all that mass", "Gravity acts here effectively", "Balance at this point = no tipping", "Projectiles rotate around this point"],
+        blurb: "The center of mass is the balance point — where gravity effectively acts on an object. Gravity, net forces, and rotation all relate to this single point.",
+        detail: `The center of mass (CM) is the one point where you can treat all of an object's mass as if it were concentrated.\n\n<strong>For uniform objects:</strong>\nThe CM is the geometric center.\n• Uniform rod: the midpoint\n• Uniform disk or sphere: the center\n\n<strong>For non-uniform objects:</strong>\nThe CM is pulled toward the heavier side.\nFormula: x_cm = (m₁x₁ + m₂x₂) / (m₁ + m₂)\nThe weighted average of all positions.\n\n<strong>Why it matters:</strong>\n\n1. Stability — to avoid tipping, the CM must stay directly above the base of support.\n   Wide base + low CM = stable (sumo wrestler)\n   Narrow base + high CM = unstable (balancing on tiptoe)\n\n2. Projectile rotation — thrown objects spin around their CM while the CM follows a perfect parabola.\n   A tumbling hammer thrown across a room: the CM traces a clean arc even as the hammer rotates chaotically around it.\n\n3. Collision prediction — the CM of a system moves at constant velocity when no external forces act.\n\n<strong>Stability in real design:</strong>\nRace cars: wide and low (low CM, wide base). Double-decker buses: narrow and tall (always a stability concern — passengers affect CM height). Cranes: counterweights placed to keep CM over the base.`,
+        memory: `Balance a ruler on one finger. The balance point = center of mass. Everything left weighs the same as everything right.\n\nA falling cat always lands on its feet: it rotates its body to reposition its legs toward the ground — all while the CM follows a fixed parabolic fall path. The CM must fall straight; the cat rearranges around it.`,
+        examTip: `The trick question in stability: you stand on one foot near a cliff edge. Your CM must stay directly above your foot or you fall. Lean forward and your CM moves forward — past the foot = you tip over. This is why spreads legs wider when carrying something heavy: wider base keeps CM comfortably centered.`,
+        facts: ["CM = weighted average position", "x_cm = Σ(mᵢxᵢ)/Σmᵢ", "Gravity acts at CM", "Wide base + low CM = stable", "Projectiles: CM traces parabola", "Human CM ≈ belly-button height"]
+      },
+
+      {
+        id: "rotational-inertia",
+        title: "Rotational Inertia — The Bucket & Catapult",
+        tags: ["core"],
+        chain: ["Mass at distance r from axis", "Resists rotation as I = Σmr²", "Far from axis = much more inertia", "Bucket far from pivot = massive effect", "Pull mass inward → spins faster"],
+        blurb: "Rotational inertia is how hard it is to start or stop rotation. Where the mass is matters as much as how much — mass far from the axis resists rotation far more than mass near it.",
+        detail: `Rotational inertia (moment of inertia) is the rotational version of mass — how much an object resists angular acceleration.\n\n<strong>The formula:</strong>\nI = Σmr²\nFor each piece of mass: multiply its mass by the square of its distance from the axis. Sum everything.\n\n<strong>Why distance is squared — the key insight:</strong>\n1 kg at 1 m from axis: I = 1 kg·m²\nSame 1 kg at 2 m: I = 4 kg·m² (4× harder to spin)\nDouble the distance → quadruple the rotational inertia.\n\n<strong>Common objects:</strong>\n• Solid disk (axis through center): I = ½MR²\n• Hoop (all mass at edge): I = MR²  ← 2× harder to spin than a disk of equal mass!\n• Solid sphere: I = ⅖MR²\n• Rod rotating about its end: I = ⅓ML²\n\n<strong>The catapult and bucket — you already felt this:</strong>\nWhen you were thinking through the catapult, you understood that the bucket positioned far from the pivot swings with enormous power. That is I = Σmr². The bucket's mass contributes to the system's rotational inertia as m × r² — and since r is squared, moving it farther out multiplies its contribution dramatically. Moving the bucket closer to the pivot shrinks r², reducing the angular momentum the system can store and deliver.\n\n<strong>Conservation of angular momentum:</strong>\nL = Iω = constant (no external torque)\nDecrease I (pull mass inward) → ω must increase.\nIncrease I (push mass outward) → ω decreases.`,
+        memory: `Figure skater: arms wide out = slow spin (large I, lots of mass far from axis). Pull arms in tight = fast spin (small I, mass close to axis). Angular momentum L = Iω stays constant. Shrink I → ω shoots up instantly.\n\nThis is the most dramatic live demonstration of rotational inertia you can watch. The same physics drives the catapult, a diver tucking, a gymnast spinning, and planets forming from a collapsing gas cloud (it spins faster as it contracts).`,
+        examTip: `Conservation of angular momentum: L = Iω = constant when no external torque acts. Divers tuck (small I) to spin fast for multiple flips, then extend (large I) to slow rotation and enter water cleanly. Solar system formation: a vast slowly-rotating gas cloud collapsed (smaller r) and spun faster — that is why planets orbit fast and the Sun rotates.`,
+        facts: ["I = Σmr²", "Far from axis = 4× more I per unit mass", "Hoop I = MR²", "Disk I = ½MR²", "L = Iω = conserved", "Skater arms in → faster spin"]
+      },
+
+    ]
   },
 
   {
@@ -338,7 +450,69 @@ const SECTIONS = [
     icon: "〰️",
     title: "Waves & Sound",
     subtitle: "Frequency, wavelength, amplitude, sound, resonance, Doppler — how disturbances travel",
-    concepts: []
+    concepts: [
+
+      {
+        id: "what-are-waves",
+        title: "What Are Waves?",
+        tags: ["core"],
+        chain: ["Disturbance created in a medium", "Energy transfers outward", "Particles oscillate in place", "Matter does not travel", "Energy does"],
+        blurb: "A wave is a disturbance that transfers energy without transferring matter. The medium oscillates in place while energy moves through it.",
+        detail: `Waves are how energy moves through space and matter. The key: the medium carries the energy, but the medium itself stays put.\n\n<strong>The fundamental insight:</strong>\nThrow a rock into a pond. Ripples spread outward. The water molecules do not travel outward — they bob up and down where they are. Energy travels; water stays.\n\n<strong>Two types of mechanical waves:</strong>\n• Transverse waves: particles oscillate perpendicular to the wave's direction of travel.\nExamples: waves on a string, water surface waves, light.\n\n• Longitudinal waves: particles oscillate parallel to the wave's direction of travel.\nExamples: sound, pressure waves in a spring, seismic P-waves.\n\n<strong>What waves require:</strong>\n• Mechanical waves (sound, water, seismic) need a physical medium to propagate.\n• Electromagnetic waves (light, radio, X-ray) need no medium — they travel through vacuum.\n\n<strong>Interference:</strong>\nWaves can overlap and combine:\n• Constructive interference: crests align → amplitudes add → bigger wave\n• Destructive interference: crests meet troughs → amplitudes cancel → smaller or zero wave\n\nThis is what noise-canceling headphones do: generate a wave that destructively interferes with ambient noise. Same principle creates the dark fringes in a double-slit experiment.`,
+        memory: `Stadium wave. People stand and sit in sequence. Nobody leaves their seat (the medium stays put). The "wave" travels around the stadium (energy propagates).\n\nThe ocean swell approaching the beach: the water barely moves horizontally. The swell is pressure passing through stationary water — like a rumor spreading through a crowd without the rumor-carrier moving.`,
+        examTip: `Light is a transverse electromagnetic wave that needs no medium. Scientists once invented a fictional substance called "aether" to give light something to wave through. The Michelson-Morley experiment (1887) proved aether does not exist — light propagates through pure vacuum. This eventually led to Einstein's theory of special relativity.`,
+        facts: ["Wave = energy transfer, not matter transfer", "Medium stays in place", "Transverse: ⊥ oscillation (light, strings)", "Longitudinal: ∥ oscillation (sound)", "Mechanical: needs medium", "EM waves: no medium needed"]
+      },
+
+      {
+        id: "wave-properties",
+        title: "Frequency, Wavelength & Amplitude",
+        tags: ["core"],
+        chain: ["Wave exists", "Amplitude = peak height (energy)", "Wavelength = one full cycle length", "Frequency = cycles per second", "v = fλ connects them all"],
+        blurb: "Every wave is described by four properties: amplitude, wavelength, frequency, and wave speed. They are all connected by v = fλ.",
+        detail: `Any wave can be fully described by four numbers — and they are all linked.\n\n<strong>Amplitude (A):</strong>\nThe maximum displacement from equilibrium. Height of a water crest, pressure variation in sound, electric field strength in light.\nAmplitude determines energy: larger amplitude = more energy per wave.\nLouder sound = higher amplitude. Brighter light = higher amplitude.\n\n<strong>Wavelength (λ, lambda):</strong>\nDistance between two identical adjacent points — crest to crest, or trough to trough.\nMeasured in meters.\n\n<strong>Frequency (f):</strong>\nNumber of complete cycles passing a fixed point per second.\nUnits: Hertz (Hz) = cycles/second.\nHuman hearing range: 20 Hz – 20,000 Hz.\n\n<strong>Period (T):</strong>\nTime for one complete cycle: T = 1/f (period and frequency are inverse)\n\n<strong>Wave speed (v):</strong>\nHow fast the wave travels through the medium.\nv = fλ ← the wave equation. Memorize this.\nv = λ/T (also true)\n\nSpeed of sound in air ≈ 343 m/s.\nSpeed of light in vacuum = 3 × 10⁸ m/s.\n\n<strong>Example:</strong>\nMiddle A on a piano: f = 440 Hz, sound speed = 343 m/s.\nλ = v/f = 343/440 = 0.78 m — about arm's length. You are always surrounded by sound waves roughly this size.`,
+        memory: `Frequency = how fast the wave cycles. Pitch in music = frequency. High note = high f = short λ.\nAmplitude = how tall the wave is. Volume = amplitude. Loud = large amplitude.\n\nv = fλ reads as: wave speed = (how many per second) × (how long each one is). Intuitive: 4 cycles/second, each 0.5 m long → wave moves 2 m/s.`,
+        examTip: `Wave speed in a given medium is fixed by the medium — it does not depend on frequency or amplitude. If frequency increases, wavelength must decrease proportionally to keep v = fλ constant. High-pitched sounds have shorter wavelengths than low-pitched sounds in the same air. Same rule applies to light across the electromagnetic spectrum.`,
+        facts: ["v = fλ", "f in Hz (cycles/s)", "T = 1/f", "Amplitude → energy", "Sound in air = 343 m/s", "Light = 3×10⁸ m/s"]
+      },
+
+      {
+        id: "sound-waves",
+        title: "Sound Waves",
+        tags: ["core"],
+        chain: ["Vibrating source", "Compresses nearby air molecules", "Pressure wave propagates outward", "Alternating high and low pressure", "Eardrum vibrates → you hear it"],
+        blurb: "Sound is a longitudinal pressure wave — compressions and rarefactions moving through a medium. No medium = no sound. Pitch = frequency. Volume = amplitude.",
+        detail: `Sound is your ears detecting pressure waves moving through air (or water, metal, or anything physical).\n\n<strong>How sound works:</strong>\nA vibrating object (speaker cone, vocal cord, guitar string) pushes air molecules together — compression. As it moves back, it pulls them apart — rarefaction. This compression-rarefaction pattern propagates outward at 343 m/s through air at room temperature.\n\n<strong>Pitch = frequency:</strong>\nBass: 80–300 Hz\nMidrange: 300–3,000 Hz\nTreble: 3,000–20,000 Hz\nBats use 20,000–100,000+ Hz (ultrasound). Elephants use below 20 Hz (infrasound, over kilometers).\n\n<strong>Volume = amplitude, measured in decibels (dB):</strong>\n0 dB = threshold of hearing\n60 dB = normal conversation\n85 dB = hearing damage with prolonged exposure\n120 dB = pain threshold\n\nThe decibel scale is logarithmic: +10 dB = 10× the intensity. A 90 dB sound is 10× more intense than 80 dB, not just a bit louder.\n\n<strong>Speed of sound varies with medium:</strong>\nAir at 20°C: 343 m/s\nWater: ~1,480 m/s (~4× faster)\nSteel: ~5,100 m/s (~15× faster)\nDenser solids transmit sound faster because the molecules are tightly coupled.\n\n<strong>Echolocation:</strong>\nBats and dolphins emit pulses, time the echo, calculate distance. Dolphins can detect objects 1 mm in size from meters away. Medical ultrasound imaging uses the same principle.`,
+        memory: `Thunder and lightning: light reaches you essentially instantly (3×10⁸ m/s), sound arrives later (343 m/s). Count seconds between flash and thunder, divide by 3 → approximate distance in kilometers. Every 3 seconds ≈ 1 km.\n\nNo air in space = no sound. Movie explosions in space are completely silent in reality. The cool sound design is a lie — but a forgivable one.`,
+        examTip: `Knocking on a wall to communicate works because sound travels much faster through the solid wall (~5,000 m/s in steel or concrete) than through the adjacent air (343 m/s). The solid medium transmits faster because the molecules are more tightly coupled — each push immediately affects its neighbor.`,
+        facts: ["Longitudinal pressure wave", "343 m/s in air at 20°C", "Pitch = frequency", "Volume = amplitude", "Decibels = log scale (logarithmic)", "No medium = no sound"]
+      },
+
+      {
+        id: "resonance",
+        title: "Resonance & Standing Waves",
+        tags: ["core"],
+        chain: ["System has natural frequency", "Drive it at that frequency", "Each push adds to the last", "Amplitude builds large", "Standing waves form at harmonics"],
+        blurb: "Resonance occurs when you push a system at its natural frequency — small forces accumulate into large oscillations. Behind music, MRI machines, and the Tacoma Narrows Bridge collapse.",
+        detail: `Every physical object has a natural frequency at which it vibrates when disturbed. Push it at that exact frequency and the oscillations build to large amplitudes.\n\n<strong>The key mechanism:</strong>\nEach push arrives in sync with the existing oscillation, adding to it. Like pushing a swing at exactly the right moment every time — small pushes produce a very large swing.\n\n<strong>Standing waves:</strong>\nWhen waves reflect back and forth in a confined space (guitar string, organ pipe, room), they interfere with themselves. At specific frequencies (harmonics), constructive interference creates stable patterns:\n• Nodes: points of zero movement (fixed ends of a string)\n• Antinodes: points of maximum movement\n\nFor a string of length L:\nFundamental frequency: f₁ = v/(2L)\nHarmonics: f₂ = 2f₁, f₃ = 3f₁...\n\n<strong>Musical instruments = resonance chambers:</strong>\nGuitar: string length and tension determine harmonics → pitch.\nOrgan pipe: air column resonates at specific frequencies → note.\nVoice: your vocal tract is a resonant cavity — you shape it to amplify certain harmonics.\n\n<strong>Resonance disasters:</strong>\nTacoma Narrows Bridge (1940): wind drove oscillations at the bridge's natural frequency. The bridge collapsed from resonance — not from excessive wind force, but from sustained wind at the right frequency.\n\n<strong>Resonance in technology:</strong>\nMRI: radio waves at hydrogen atoms' resonant frequency cause them to absorb and re-emit energy, creating the image.\nQuartz clocks: a quartz crystal's mechanical resonance (32,768 Hz) keeps precise time.`,
+        memory: `Pushing a child on a swing: push at the wrong moment = low swing. Push at the natural period = each push adds to the last = huge swing from tiny effort. That is resonance.\n\nThe Tacoma Narrows Bridge video is required viewing — a 600-meter suspension bridge undulating and then tearing itself apart from wind-driven resonance. The engineers built for static loads but underestimated dynamic resonance. Watch it once and you will never forget resonance.`,
+        examTip: `Standing wave on a string with both ends fixed: nodes at both ends, length L must be a whole number of half-wavelengths. L = nλ/2, so λ = 2L/n, so f = nv/2L. The fundamental (n=1) fits one half-wavelength in the string. The 2nd harmonic (n=2) fits one full wavelength. Guitar strings produce a blend of all harmonics simultaneously — that blend is the timbre of the instrument.`,
+        facts: ["Resonance: drive at natural freq", "Every object has natural freq", "Nodes: zero displacement", "Antinodes: max displacement", "f₁ = v/2L (string fundamental)", "MRI uses nuclear resonance"]
+      },
+
+      {
+        id: "doppler-effect",
+        title: "The Doppler Effect",
+        tags: ["core"],
+        chain: ["Source emits waves", "Source moves toward you", "Wavefronts compressed", "Higher frequency perceived", "Source moves away → stretched waves → lower frequency"],
+        blurb: "When a wave source moves relative to you, the perceived frequency changes. Approaching = higher pitch. Receding = lower pitch. Works for sound AND light — and proves the universe is expanding.",
+        detail: `The Doppler effect is the change in perceived frequency when a source and observer move relative to each other.\n\n<strong>Why it happens:</strong>\nSource moving toward you: each successive wave emitted is slightly closer to you. Wavefronts are compressed — you receive more cycles per second than were emitted → higher perceived frequency.\n\nSource moving away: waves emitted from progressively farther away → wavefronts stretched → fewer cycles per second → lower perceived frequency.\n\n<strong>The ambulance example:</strong>\nThe ambulance siren emits a constant frequency. Approaching you: high pitch (WHEEE). Moving away: low pitch (WAAH). The siren did not change — only the relative motion changed what you perceive.\n\n<strong>Formula for sound:</strong>\nf_obs = f_source × (v ± v_observer) / (v ∓ v_source)\nv = speed of sound; use + when moving toward, − when moving away.\n\n<strong>Doppler effect for light:</strong>\n• Source moving toward you → light blueshifted (compressed toward shorter/bluer wavelengths)\n• Source moving away → light redshifted (stretched toward longer/redder wavelengths)\n\nEdwin Hubble (1929): all distant galaxies are redshifted, meaning they are all moving away from us. The farther the galaxy, the more redshifted. This proved the universe is expanding.\n\n<strong>Applications:</strong>\n• Police radar: measures Doppler shift of reflected radio waves → speed\n• Weather Doppler radar: detects rain moving toward or away → wind patterns\n• Medical ultrasound: measures blood flow velocity via Doppler shift\n• Exoplanet detection: star wobbles toward/away as planet orbits → Doppler shift reveals the wobble`,
+        memory: `Train passing through a station: high-pitched horn approaching, then a clear pitch drop as it passes. The horn's actual frequency never changed — your perception did as relative motion reversed.\n\nBlueshift = approaching (light compressed toward blue). Redshift = receding (light stretched toward red). Hubble saw everything redshifted → everything moving away → universe expanding. The Big Bang is the consequence of running that expansion backward.`,
+        examTip: `Police radar guns measure Doppler shift of reflected radio waves. The car reflects the radar signal at a frequency shifted by the car's speed — the radar computes the shift and calculates speed directly. Faster car = bigger Doppler shift = larger displayed speed = bigger ticket.`,
+        facts: ["Approaching = higher freq perceived", "Receding = lower freq perceived", "Blueshift = toward observer", "Redshift = away from observer", "Universe expanding = all redshifted", "Radar, weather, ultrasound all use Doppler"]
+      },
+
+    ]
   },
 
   {
@@ -346,7 +520,81 @@ const SECTIONS = [
     icon: "🔌",
     title: "Electricity & Magnetism",
     subtitle: "Charge, voltage, current, resistance, circuits, induction — the foundation of electronics",
-    concepts: []
+    concepts: [
+
+      {
+        id: "electric-charge",
+        title: "Electric Charge & Fields",
+        tags: ["applied"],
+        chain: ["Particles carry charge", "Protons = positive, electrons = negative", "Like charges repel", "Opposite charges attract", "Electric field fills space around a charge"],
+        blurb: "Electric charge is a fundamental property of matter. Like charges repel, opposites attract. Electric fields describe the force in the space surrounding any charge.",
+        detail: `Electric charge is one of the fundamental properties of matter — like mass, but for electromagnetism.\n\n<strong>Units and basic values:</strong>\nCharge is measured in Coulombs (C).\nElectron charge: e = −1.6 × 10⁻¹⁹ C\nProton charge: +1.6 × 10⁻¹⁹ C\n\n<strong>Coulomb's Law:</strong>\nF = k × q₁q₂ / r²\nk = 8.99 × 10⁹ N·m²/C² (Coulomb's constant)\nSame mathematical structure as gravity (force ∝ 1/r²), but can be attractive or repulsive.\nThe electric force between two electrons is ~10³⁶ times stronger than the gravitational force between them.\n\n<strong>Electric field (E):</strong>\nThe force-per-unit-charge at a point in space: E = F/q (N/C or V/m)\nField direction = direction a positive test charge would be pushed.\nFields point away from positive charges, toward negative charges.\n\n<strong>Conductors vs insulators:</strong>\n• Conductor (metals): electrons move freely. Charge distributes across the outer surface.\n• Insulator (rubber, glass, plastic): electrons are tightly bound. Charge stays where placed.\n• Semiconductor (silicon): between the two — behavior controlled by doping. Basis of all electronics.\n\n<strong>Charge conservation:</strong>\nCharge is never created or destroyed. Only transferred. The total charge of the universe is constant.`,
+        memory: `Two protons near each other: they fight (both positive, they repel). A proton and electron near each other: they snap together (opposite charges attract). Same rule as magnet poles.\n\nGravity is always attractive and grows with mass. Electric force can attract or repel and grows with charge. Gravity wins at astronomical scale because mass is always positive and accumulates. Electric forces tend to cancel out across large objects (positive and negative charges mix together).`,
+        examTip: `Conductors in electrostatics: excess charge always resides on the outer surface, never inside. This is why a metal car protects you from lightning (Faraday cage effect) — charge distributes on the outside, the interior has no field. This principle is used in shielded cables, microwave ovens, and RF shielding for electronics.`,
+        facts: ["e = 1.6×10⁻¹⁹ C", "F = kq₁q₂/r² (Coulomb's Law)", "Like charges repel", "Opposite charges attract", "E = F/q (field strength)", "Charge is always conserved"]
+      },
+
+      {
+        id: "voltage-current-resistance",
+        title: "Voltage, Current & Resistance",
+        tags: ["applied"],
+        chain: ["Voltage = electrical pressure", "Pushes current through circuit", "Current = rate of charge flow", "Resistance opposes flow", "V = IR — Ohm's Law"],
+        blurb: "Voltage is the electrical pressure. Current is the flow. Resistance opposes it. Ohm's Law — V = IR — is the fundamental equation of every circuit you will ever build.",
+        detail: `These three quantities are the foundation of every circuit.\n\n<strong>Voltage (V):</strong>\nElectric potential difference — the energy per unit charge between two points.\n1 Volt = 1 Joule per Coulomb (J/C)\nA 9V battery gives each Coulomb of charge 9 Joules of energy to spend.\n\n<strong>Current (I):</strong>\nRate of charge flow through the circuit.\n1 Ampere = 1 Coulomb per second (C/s)\nConventional current flows from + to − (opposite to actual electron drift — a historical choice).\n\n<strong>Resistance (R):</strong>\nHow much a material opposes current flow.\nMeasured in Ohms (Ω).\n1 Ω = 1 V/A\nCopper wire: nearly 0 Ω. Rubber: 10¹³ Ω. Resistors: known values used in circuit design.\n\n<strong>Ohm's Law:</strong>\nV = IR\nRearranged: I = V/R, R = V/I\nMore voltage → more current (if R stays constant)\nMore resistance → less current (if V stays constant)\n\n<strong>Real-world examples:</strong>\n• Phone charger (USB-C, 20W): 5V at 4A\n• Household outlet (US): 120V, up to 15–20A per circuit\n• Car battery: 12V, capable of hundreds of amperes for starting`,
+        memory: `Water pipe analogy — perfect for DC circuits:\n• Voltage = water pressure (the push from the pump)\n• Current = flow rate (liters per second)\n• Resistance = pipe narrowness (friction that fights the flow)\n\nIncrease pressure → more flow. Narrower pipe → less flow. V = IR = pressure = flow × resistance. Every single circuit problem starts here.`,
+        examTip: `Ohm's Law applies only to ohmic components — resistors where R stays constant regardless of V or I. Non-ohmic components (diodes, LEDs, transistors) have V-I relationships that are not straight lines. But even for non-ohmic devices, V, I, and R are still related — just not by a constant ratio.`,
+        facts: ["V = IR (Ohm's Law)", "I in Amperes (A)", "V in Volts (V)", "R in Ohms (Ω)", "1 A = 1 C/s", "1 V = 1 J/C"]
+      },
+
+      {
+        id: "circuits",
+        title: "Circuits — Series & Parallel",
+        tags: ["applied"],
+        chain: ["Components connected", "Series: one path for current", "Parallel: multiple paths", "Series: same I, voltages split", "Parallel: same V, currents split"],
+        blurb: "Series circuits have one path — current is the same everywhere, voltage splits. Parallel circuits have multiple paths — voltage is the same, current splits. Real circuits use both.",
+        detail: `Knowing series vs parallel is the difference between building circuits that work and ones that don't.\n\n<strong>Series circuit:</strong>\n• One continuous path for current\n• Same current flows through every component\n• Voltage divides across components in proportion to their resistance\n• Total resistance: R_total = R₁ + R₂ + R₃ (resistances add)\n• If one component fails open, the entire circuit fails — all current stops\n\nOld-style Christmas lights were series: one dead bulb = all dark.\n\n<strong>Parallel circuit:</strong>\n• Multiple independent paths for current\n• Same voltage across every branch\n• Current splits between branches\n• Total resistance: 1/R_total = 1/R₁ + 1/R₂ + 1/R₃\n  (total R is less than any single branch — more paths = less total resistance)\n• One branch fails: others keep working\n\nYour home outlets: all in parallel. One lamp off = others unaffected.\n\n<strong>Kirchhoff's Laws:</strong>\n• KVL (Voltage Law): sum of all voltages around any closed loop = 0\n• KCL (Current Law): sum of currents into any junction = sum of currents out\n\n<strong>Short circuit:</strong>\nA path with near-zero resistance. All current takes that path. Huge surge → overheating → fire. Circuit breakers and fuses exist to interrupt this.`,
+        memory: `Series = a single-lane road through three toll booths. Same car passes all three (same current). Each booth takes some time (voltage drop). Close one booth = all traffic stops.\n\nParallel = a highway with three lanes. Each lane carries its own traffic (current splits). Same speed limit on all lanes (same voltage). Close one lane = others still flow normally.`,
+        examTip: `Two resistors in parallel: R_total = (R₁ × R₂)/(R₁ + R₂). This is always less than the smaller resistor. Adding any parallel path always decreases total resistance and increases current from the source. This is why daisy-chaining power strips with high-power devices trips circuit breakers — parallel paths draw more total current, not less.`,
+        facts: ["Series: same I, V splits", "Parallel: same V, I splits", "Series R_tot = R₁+R₂+R₃", "Parallel R_tot < smallest R", "KVL: loop voltages = 0", "KCL: currents in = currents out"]
+      },
+
+      {
+        id: "magnetism",
+        title: "Magnetism",
+        tags: ["applied"],
+        chain: ["Moving electric charges", "Create magnetic field around them", "Field exerts force on other moving charges", "North and south poles always paired", "Electricity and magnetism: one force"],
+        blurb: "Magnetism is produced by moving electric charges. Every magnet is electrons arranged to spin the same way. Every current-carrying wire has a magnetic field circling it.",
+        detail: `Magnetism and electricity are two aspects of one fundamental force — electromagnetism.\n\n<strong>What creates magnetic fields:</strong>\n• Moving electric charges — a current through a wire creates a circular magnetic field around it\n• Electron spin — the quantum mechanical spin of electrons creates a tiny magnetic dipole\n\nIn most materials, electron spins are random — fields cancel. In ferromagnetic materials (iron, nickel, cobalt), billions of electrons align → permanent magnet.\n\n<strong>Magnetic poles:</strong>\nEvery magnet has a North and South pole. Like poles repel; unlike poles attract.\nCut a magnet in half → two complete magnets, each with N and S.\nMagnetic monopoles (a pure N or S without the other) have never been observed.\n\n<strong>Force on a moving charge in a magnetic field:</strong>\nF = qvB × sin(θ)\nq = charge, v = speed, B = magnetic field strength (Tesla)\nDirection: perpendicular to both v and B (right-hand rule).\nForce is zero if charge moves parallel to field.\n\n<strong>Earth's magnetic field:</strong>\nGenerated by the convecting liquid iron in Earth's outer core. Acts like a giant bar magnet, though it shifts over geological time. Protects us from solar wind — charged particles that would otherwise strip the atmosphere. Mars lost its magnetic field ~4 billion years ago and lost most of its atmosphere as a result.\n\n<strong>Electromagnets:</strong>\nCoil of wire (solenoid) carrying current → concentrated magnetic field inside.\nControl current = control field strength. The basis of motors, MRI machines, speakers, hard drives.`,
+        memory: `Every electron is a tiny spinning charged ball — that spin makes it a tiny magnet. In iron, domains of billions of aligned electrons can be nudged to all point the same way. The result: a permanent magnet. Heat it past the Curie temperature (~770°C for iron) → thermal chaos randomizes the spins → demagnetized.\n\nRight-hand rule: point thumb in direction of current, fingers curl in direction of magnetic field circling the wire.`,
+        examTip: `A charge moving parallel to a magnetic field experiences zero force (sin(0°) = 0). Maximum force when perpendicular. This is why particle accelerators use perpendicular magnetic fields to curve beams into circles — the force is always inward (centripetal) and never does work (always ⊥ to velocity). The speed stays constant; only direction changes.`,
+        facts: ["Moving charges → magnetic field", "F = qvB·sinθ on moving charges", "Like poles repel, unlike attract", "No magnetic monopoles", "Earth's field = liquid iron outer core", "Electromagnet = current through coil"]
+      },
+
+      {
+        id: "electromagnetic-induction",
+        title: "Electromagnetic Induction",
+        tags: ["applied"],
+        chain: ["Magnetic field changes near conductor", "Changing flux induces EMF", "EMF drives current", "Generators, transformers, wireless chargers", "Faraday discovered this in 1831"],
+        blurb: "Change a magnetic field near a conductor and you get electricity. This is how every generator, transformer, and wireless charger works. Faraday's discovery in 1831 lit the modern world.",
+        detail: `Faraday's Law of Induction: a changing magnetic field induces an EMF (electromotive force) in a nearby conductor, which drives a current.\n\n<strong>Faraday's Law:</strong>\nEMF = −ΔΦ/Δt\nΦ (magnetic flux) = B × A × cos(θ)\nFaster flux change = larger induced EMF.\n\n<strong>How generators work:</strong>\nSpin a coil of wire inside a magnetic field → the flux through the coil constantly changes → EMF constantly induced → current flows out.\nEvery power plant on Earth works this way: spin a coil using steam (coal, nuclear, gas), water (hydro), or wind. The fuel just determines how you spin the coil.\n\n<strong>Motors = generators in reverse:</strong>\nApply current to a coil inside a magnetic field → the field pushes the coil → it spins. Generators and motors are the same physical device, used differently.\n\n<strong>Lenz's Law:</strong>\nThe induced current always opposes the change that caused it.\nDrop a magnet through a copper pipe → magnet falls slowly: the induced current creates a field that fights the magnet's descent. Energy is conserved — the magnetic braking converts kinetic energy to heat in the copper.\n\n<strong>Transformers:</strong>\nTwo coils around an iron core. AC in coil 1 → changing flux → EMF in coil 2.\nV₂/V₁ = N₂/N₁ (voltage ratio = turns ratio)\nStep-up (more turns in secondary): higher voltage out.\nStep-down: lower voltage out.\nPower grids: generate at ~25 kV, step up to 500 kV for long-distance transmission (less energy lost), step down to 120V/240V for homes.\n\n<strong>Wireless charging:</strong>\nCharging pad runs AC current → changing magnetic field → your phone's receiver coil picks up changing flux → induced current → charges battery. Pure Faraday induction.`,
+        memory: `Lenz's Law: "The induced current fights back." Like a stubborn friend who always does the opposite of what you want. Try to increase flux → induced current creates opposing field. Try to decrease flux → induced current creates field to maintain it.\n\nPhone wireless charger = Faraday's 1831 lab experiment, miniaturized into a pad. He moved a magnet through a coil of wire. The charger alternates current at high frequency to simulate that changing field, inducing current in your phone's coil.`,
+        examTip: `Transformers only work with AC, not DC. DC creates constant flux — no change, no induced EMF. The global power grid uses AC specifically because transformers allow voltage stepping. That is why Nikola Tesla (AC) beat Thomas Edison (DC) in the "War of Currents" — AC can be transformed to high voltage for efficient long-distance transmission; DC of 1890 could not.`,
+        facts: ["Changing B-field → EMF → current", "EMF = −ΔΦ/Δt (Faraday's Law)", "Generator: spin coil → current", "Motor: current + field → spin coil", "Lenz's Law: induced I opposes change", "Transformers work only with AC"]
+      },
+
+      {
+        id: "circuit-power",
+        title: "Power in Circuits",
+        tags: ["applied"],
+        chain: ["Current flows through resistance", "Work done on charges", "Energy dissipated as heat or light", "P = IV", "Also P = I²R and P = V²/R"],
+        blurb: "Electrical power is voltage times current — the rate at which a device converts electrical energy. This is exactly what the Watt measures.",
+        detail: `Power in circuits tells you how fast electrical energy is converted to heat, light, sound, or mechanical motion.\n\n<strong>The formula:</strong>\nP = IV\nPower (W) = Current (A) × Voltage (V)\n\n<strong>Alternative forms — derived using V = IR:</strong>\nP = I²R — useful when you know current and resistance\nP = V²/R — useful when you know voltage and resistance\n\n<strong>Examples across scales:</strong>\n• LED bulb: 9W at 120V → I = 9/120 = 0.075 A (small current)\n• Space heater: 1,500W at 120V → I = 12.5 A (near circuit limit)\n• USB-C phone charger: 5V at 3A = 15W\n• Electric car fast charger: 400V at 100A = 40,000W = 40 kW\n• Large power plant: ~1,000 MW = 10⁹ W\n\n<strong>Joule heating (P = I²R):</strong>\nWhen current flows through resistance, electrical energy converts to heat at I²R watts.\nThis is how electric stoves, toasters, incandescent bulbs, and hand warmers work.\nAlso why wire gauge matters: too thin a wire for the current → too much resistance → I²R heating → fire.\n\n<strong>Energy vs power:</strong>\nP = rate of energy use (W = J/s)\nEnergy = P × t (Joules, or kWh for electricity bills)\n1 kWh = 1,000 W × 3,600 s = 3,600,000 J = 3.6 MJ`,
+        memory: `P = IV is the electrical version of power = force × velocity. Voltage is electrical force (pressure); current is electrical flow. Multiply = energy per second.\n\nYour electricity bill charges per kWh (energy), not watts (power). A 1,000W heater running 10 hours = 10 kWh. In most of the US that costs about $1.20–$1.80. Tracking your energy budget is literally joules per dollar.`,
+        examTip: `Circuit breakers trip based on current, not power. A 20A circuit at 120V can deliver up to 2,400W. Plugging in devices totaling more than 2,400W → current exceeds 20A → breaker trips. In parallel, currents add — adding more devices always increases total current from the source, which is exactly why the breaker exists.`,
+        facts: ["P = IV", "P = I²R (Joule heating)", "P = V²/R", "Units: Watts (W)", "1 kWh = 3.6 MJ", "Breakers trip on current, not power"]
+      },
+
+    ]
   },
 
   {
