@@ -134,7 +134,8 @@ function renderHome() {
         <strong style="color:var(--text)">5. Waves & Sound</strong> → Frequencies, resonance, Doppler<br>
         <strong style="color:var(--text)">6. Electricity & Magnetism</strong> → Voltage, circuits, induction<br>
         <strong style="color:var(--text)">7. Light & Thermodynamics</strong> → Optics, heat, entropy<br>
-        <strong style="color:var(--text)">8. Modern Physics</strong> → Atoms, quantum basics, E=mc²
+        <strong style="color:var(--text)">8. Modern Physics</strong> → Atoms, quantum basics, E=mc²<br>
+        <strong style="color:var(--text)">9. Quantum Physics</strong> → Superposition, entanglement, tunneling, spin
       </div>
     </div>
   `;
